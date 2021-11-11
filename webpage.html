@@ -1,0 +1,182 @@
+<html>
+<head>
+<title>MENU</title>
+<style>
+body{
+background-image:url('bg.jpg');
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-size:cover;
+	}
+</style>
+<script>
+var i=0;
+var s=0.0;
+var s1="";
+var s2="";
+var t=10;<!--Number of elements in food() counting form 0-->
+const food=["Burger","Cheese Pizza","Cutlet","Veg Wafer","French Fries","Chicken Burger","Cheese Pizza(Sausage)","Fish Kabiraji","Fish Cutlet","Chicken Cutlet","Chicken Wafer"];
+const price=[99,299,79,49,29,129,259,119,99,99,79];
+const freq=[0,0,0,0,0,0,0,0,0,0,0];
+var bil=[];
+function change2()
+{
+if(document.getElementById("r1").checked==false && document.getElementById("r2").checked==false && document.getElementById("r4").checked==false && document.getElementById("r3").checked==false) 
+alert("Enter a payment method");
+else
+alert("Your order"+s2+"has been placed Rs."+s);
+}
+function change()
+{
+	if(s2=="")
+	alert("Enter Items!");
+	else
+	document.getElementById("tp1").style.zIndex="5";
+}
+function change1()
+{
+  if(document.getElementById("i2").value==null || document.getElementById("i2").value=="")
+  alert("Enter Your Name");
+  else
+	if(document.getElementById("i3").value.toString().length==10)
+	{
+	document.getElementById("tp2").style.zIndex="2";
+	}
+	else
+	{
+	alert("Enter Valid Mobile Number!");
+	document.getElementById("i3").value=null;
+	}
+}
+function add(x)
+{
+s2="";
+s1="";
+s=s+price[x];
+
+
+bil[i]=food[x];
+for(var k=0;k<=t;k++)
+for(var j=0;j<=i;j++)
+{
+if(bil[j]==food[k])
+freq[k]=freq[k]+1;
+}
+for(var k=0;k<=t;k++)
+{
+if(freq[k]!=0)
+s2=s2+food[k]+"(x"+freq[k]+")"+",";
+}
+document.getElementById("tp3").innerHTML="</br></br></br>Items:"+s2+"</br></br>Total Cost:Rs."+s;
+
+}
+</script>
+</head>
+<body>
+<label style="font-size:3vw;"><center style="background-color:red;">FOOD PLAZA</center></label></br>
+
+<table style="height:70vh;background-color:white;">
+<tr>
+<th style="width:15vw;height:5vh;">ITEM</th>
+<th style="width:15vw;height:5vh;">PRICE</th>
+<th></th>
+<th></th>
+</tr>
+<tr>
+<th>Burger</th>
+<th>Rs.99</th>
+<th ><img src="veg.jpg" alt="veg" style="height:3vh;width:1.5vw;"></th>
+<th style="cursor:pointer;" onclick=add(0)>ADD</th>
+</tr>
+<tr>
+<th>Cheese Pizza</th>
+<th>Rs.299</th>
+<th ><img src="veg.jpg" alt="veg" style="height:3vh;width:1.5vw;"></th>
+<th style="cursor:pointer;" onclick=add(1)>ADD</th>
+</tr>
+<tr>
+<th>Cutlet</th>
+<th>Rs.79</th>
+<th ><img src="veg.jpg" alt="veg" style="height:3vh;width:1.5vw;"></th>
+<th style="cursor:pointer;" onclick=add(2)>ADD</th>
+</tr>
+<tr>
+<th>Veg Wafer</th>
+<th>Rs.49</th>
+<th ><img src="veg.jpg" alt="veg" style="height:3vh;width:1.5vw;"></th>
+<th style="cursor:pointer;" onclick=add(3)>ADD</th>
+</tr>
+<tr>
+<th>French Fries</th>
+<th>Rs.29</th>
+<th ><img src="veg.jpg" alt="veg" style="height:3vh;width:1.5vw;"></th>
+<th style="cursor:pointer;" onclick=add(4)>ADD</th>
+</tr>
+<tr>
+<th>Chicken Burger</th>
+<th>Rs.129</th>
+<th ><img src="non veg.jpg" alt="veg" style="height:3vh;width:1.5vw;"></th>
+<th style="cursor:pointer;" onclick=add(5)>ADD</th>
+</tr>
+<tr>
+<th>Cheese Pizza(Sausage)</th>
+<th>Rs.259</th>
+<th ><img src="non veg.jpg" alt="veg" style="height:3vh;width:1.5vw;"></th>
+<th style="cursor:pointer;" onclick=add(6)>ADD</th>
+</tr>
+<tr>
+<th>Fish Kabiraji</th>
+<th>Rs.119</th>
+<th ><img src="non veg.jpg" alt="veg" style="height:3vh;width:1.5vw;"></th>
+<th style="cursor:pointer;" onclick=add(7)>ADD</th>
+</tr>
+<tr>
+<th>Fish Cutlet</th>
+<th>Rs.99</th>
+<th ><img src="non veg.jpg" alt="veg" style="height:3vh;width:1.5vw;"></th>
+<th style="cursor:pointer;" onclick=add(8)>ADD</th>
+</tr>
+<tr>
+<th>Chicken Cutlet</th>
+<th>Rs.99</th>
+<th ><img src="non veg.jpg" alt="veg" style="height:3vh;width:1.5vw;"></th>
+<th style="cursor:pointer;" onclick=add(9)>ADD</th>
+</tr>
+<tr>
+<th>Chicken Wafer</th>
+<th>Rs.79</th>
+<th ><img src="non veg.jpg" alt="veg" style="height:3vh;width:1.5vw;"></th>
+<th style="cursor:pointer;" onclick=add(10)>ADD</th>
+</tr>
+</table>
+<div id="tp2" style="position:absolute;height:50vh;width:25vw;top:30vh;left:60vw;background-color:yellow;z-index:4;">
+<form name="f1">
+</br></br>
+
+<label style="margin-left:3vw;font-size:30px;font-family:fantasy;">Customer Details</label></br>
+<input type="text" name="t1" id="i2" value="" placeholder="Enter Name" style="margin-left:3vw;margin-top:8vh;">
+<input type="number" name="t2" id="i3" value="" placeholder="Enter Mobile Number" style="margin-left:3vw;margin-top:4vh;"></br>
+
+<input type="button" name="b1" value="LOGIN" onclick=change1() style="height:10%;width:20%;margin-left:3vw;margin-top:4vh;background-color:red;" >
+</form>
+</div>
+<div class="brav" style="position:absolute;height:50vh;width:25vw;top:30vh;left:60vw;background-color:yellow;z-index:3;">
+<div id="tp3" style="height:80%;width:100%;">
+<label style="margin-left:3vw;font-size:30px;font-family:fantasy;">Select Food Items</label>
+</div>
+<input type="button" name="b2" value="PAYMENT"  onclick=change() style="height:10%;width:20%;margin-left:3vw;background-color:red;">
+</div>
+<div id="tp1" style="position:absolute;height:50vh;width:25vw;top:30vh;left:60vw;background-color:yellow;z-index:2;">
+<label style="margin-left:3vw;font-size:30px;font-family:fantasy;">PAYMENT MODE</label></BR>
+<input type="radio" style="margin-left:6vw;margin-top:8vh;" id="r1" name="fav" value="Net Banking">
+<label for="r1">Net Banking</label></br>
+<input type="radio" style="margin-left:6vw;margin-top:6vh;" id="r2" name="fav" value="UPI">
+<label for="r2">UPI</label></br>
+<input type="radio" style="margin-left:6vw;margin-top:6vh;" id="r3" name="fav" value="CARD">
+<label for="r3">CARD</label></br>
+<input type="radio" style="margin-left:6vw;margin-top:6vh;" id="r4" name="fav" value="CASH">
+<label for="r4">CASH</label></br>
+<input type="button" style="margin-left:6vw;margin-top:6vh;background-color:RED;" name="b3" value="CONFIRM" onclick=change2() >
+</div> 
+</body>
+</html>
